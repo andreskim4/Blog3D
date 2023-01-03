@@ -1,0 +1,29 @@
+{% extends "App3D/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="text-white-75 mb-5">SOBRE NOSOTROS</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h2 class="text-white-75 mb-4">Log In</h2>
+<form action="{% url 'login'  %}" method="POST"> {% csrf_token %}
+
+    <table>
+    
+        {{ form.as_table }}
+    
+    </table>
+    
+    <input type="submit" value="INGRESAR">
+    
+    
+    </form>
+
+    {{ mensaje }}
+
+    <hr class="divider divider-light" />
+<p class="text-white-30 mb-4">No estas registrado? Registrate <a href="{% url 'register' %}"style="color: blue;">aqui</a></p> 
+
+{% endblock %}
