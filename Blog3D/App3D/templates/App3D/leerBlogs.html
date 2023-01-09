@@ -1,0 +1,25 @@
+{% extends "App3D/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">Lista de blogs</h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h2>LISTADO DE BLOGS</h2>
+<ul>
+
+    {% for blog in listaBlogs %}
+    <li>{{ blog.Tema }} {{ blog.Material }} - {{ blog.Escala }}
+    
+    <a href="{% url 'detalleBlog' blog.id %}"style="color: blue;">Leer más</a>
+    </li>
+
+    {% endfor %}
+
+
+</ul>
+<h3>{{ mensaje }}</h3>
+
+{% endblock %}

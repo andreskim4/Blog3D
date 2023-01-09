@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	{% load static %}     
+           
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>Imprimiendo3D - Blog de noticias</title>
+	<!-- Favicon-->
+	<link rel="icon" type="image/png" href="{% static 'App3D/assets/Icono.png' %}">
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<link href="{% static 'App3D/css/styles.css' %}" rel="stylesheet" />
+	<title>
+		Dm
+	</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+		*{
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			
+
+
+			background:#fafafa;
+		}
+
+		h1, h2, h3, p, small{
+			font-family: 'Roboto', sans-serif;
+		}
+
+		.div_main{
+			width: 60%;
+			margin: 50px auto;
+		}
+
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="{% url 'inicio' %}">Imprimiendo3D</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+				 
+					{% if user.is_authenticated %}
+					<li class="nav-item"><a class="nav-link" href="{% url 'leerBlogs' %}#top">Lista de blogs</a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'inbox' %}#top">Mis mensajes</a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'editarPerfil' %}#top">Mi perfil</a></li>
+					<p> Hola {{ user.username }}</p>
+					<img src="{{ imagen }}" alt="">
+					<a class="btn btn-danger" href="{% url 'logout' %}">Desloguearme</a>
+					{% else %}
+					<a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+					{% endif %}
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	
+
+	<div class="div_main">
+		{% block contenedor %}
+		
+		{% endblock %}
+	</div>
+
+</body>
+</html>

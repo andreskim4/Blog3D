@@ -1,0 +1,11 @@
+{% extends "App3D/padre.html" %}
+
+{% load static %}
+
+{% block titulo2 %}
+<h1 class="mb-5"> {{ mensaje }} </h1>
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<p class="text-white-30 mb-4">Para loguearte click <a href="{% url 'inicio' %}"style="color: blue;">aca</a></p>            
+{% endblock %}
